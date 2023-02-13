@@ -1,0 +1,11 @@
+<!doctype html>
+{{> partials/header }}
+
+<h1>Entreprises</h1>
+<a class="button is-dark" href="/entrep/new">Ajouter une entreprise</a>
+<ul>
+    {{#entreprises}}
+        <li>{{rs}} - {{email}}</li>
+    {{/entreprises}}
+</ul>
+{{> partials/footer }}

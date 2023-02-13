@@ -1,0 +1,10 @@
+{{> partials/header }}
+<h1>Entreprise</h1>
+<form method="post" action="/entrep/new">
+    {{#entrep}}
+        <input type="text" name="rs" placeholder="Raison sociale">
+        <input type="email" name="email" placeholder="Email">
+        <button type="submit">Valider</button>
+    {{/entrep}}
+</form>
+{{> partials/footer }}
