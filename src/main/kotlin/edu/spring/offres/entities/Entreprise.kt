@@ -5,6 +5,8 @@ import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
+import jakarta.persistence.JoinTable
+import jakarta.persistence.OneToMany
 
 @Entity
 open class Entreprise {
@@ -29,4 +31,7 @@ open class Entreprise {
 
     @Column(length = 255)
     open var email:String?=null
+
+    @OneToMany(mappedBy = "entreprise")
+    open val offres= mutableSetOf<Offre>()
 }
