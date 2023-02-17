@@ -1,0 +1,9 @@
+package edu.spring.offres.repositories
+
+import edu.spring.offres.entities.Candidat
+import org.springframework.data.repository.CrudRepository
+import org.springframework.stereotype.Repository
+
+@Repository
+interface CandidatRepository: CrudRepository<Candidat, Int> {
+}
