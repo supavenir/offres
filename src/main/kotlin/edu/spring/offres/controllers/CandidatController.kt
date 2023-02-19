@@ -16,6 +16,6 @@ class CandidatController {
     fun indexListCandidat(model : ModelMap) : String
     {
         model["candidats"] = candidatRepository.findAll();
-        return "";
+        return "/candidat/index";
     }
 }
