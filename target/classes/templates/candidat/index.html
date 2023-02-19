@@ -6,6 +6,7 @@
                 <th><input type="checkbox" name="select_all" id="select_all" title="Tout sélectionner"></th>
                 <th>Prénom</th>
                 <th>Nom</th>
+                <th>Email</th>
             </tr>
         </thead>
         {{# candidats}}
@@ -13,6 +14,7 @@
                 <td><input type="checkbox" name="select_one"></td>
                 <td>{{prenom}}</td>
                 <td>{{nom}}</td>
+                <td>{{email}}</td>
             </tr>
         {{/ candidats}}
     </table>
