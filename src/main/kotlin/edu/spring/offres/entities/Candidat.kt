@@ -13,4 +13,7 @@ open class Candidat {
 
     @Column(length = 80, nullable = false)
     open lateinit var nom: String
+
+    @Column(length = 255, nullable = false)
+    open lateinit var email: String
 }
