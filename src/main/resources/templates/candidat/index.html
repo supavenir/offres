@@ -17,5 +17,10 @@
                 <td>{{email}}</td>
             </tr>
         {{/ candidats}}
+        {{^ candidats}}
+            <tr>
+                <td colspan="4">Aucun candidat disponible</td>
+            </tr>
+        {{/ candidats}}
     </table>
 {{> partials/footer }}
