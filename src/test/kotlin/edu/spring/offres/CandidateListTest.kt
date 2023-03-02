@@ -1,22 +1,18 @@
 package edu.spring.offres
 
-import edu.spring.offres.repositories.CandidatRepository
+import org.junit.jupiter.api.AfterEach
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
+import org.openqa.selenium.chrome.ChromeDriver
 
 @SpringBootTest
 class CandidateListTest {
-    /*private lateinit var driver: WebDriver
-    @BeforeEach
-    fun init() {
-        System.setProperty("webdriver.chrome.driver", "C:/ChromeDriver/chromedriver.exe")
-        driver = ChromeDriver()
-        driver.get("http://localhost:8080/ma-page-de-liste")
-    }*/
-
     @Test
-    fun index() {
-
+    fun openWebPage() {
+        System.getProperty("webdriver.chrome.driver", "src/main/kotlin/edu/spring/offres/drivers/chromedriver.exe");
+        val driver : WebDriver = ChromeDriver();
     }
 }
