@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.servlet.view.RedirectView
+import java.util.*
 
 @Controller
 @RequestMapping("/entrep")
@@ -34,7 +35,11 @@ class EntrepriseController {
     fun newSubmitAction(
         @ModelAttribute entreprise:Entreprise
     ):RedirectView{
-        entrepriseRepository.save(entreprise)
+        var exist = false;
+        entrepriseRepository.findAll().forEach {
+            if (it.rs == entreprise.rs) exist = true;
+        }
+        if(!exist) entrepriseRepository.save(entreprise);
         return RedirectView("/entrep")
     }
 }
