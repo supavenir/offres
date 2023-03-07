@@ -1,8 +1,0 @@
-2023-02-19 16:35:40 jdbc[13]: exception
-org.h2.jdbc.JdbcSQLDataException: Erreur lors de la conversion de données "'' (candidat: ""id_candidat"" INTEGER NOT NULL)"
-Data conversion error converting "'' (candidat: ""id_candidat"" INTEGER NOT NULL)"; SQL statement:
-INSERT INTO "PUBLIC"."candidat"("id_candidat","nom","prenom")VALUES(?,?,?) [22018-214]
-2023-02-19 16:35:40 jdbc[13]: exception
-org.h2.jdbc.JdbcSQLDataException: Erreur lors de la conversion de données "'' (candidat: ""id_candidat"" INTEGER NOT NULL)"
-Data conversion error converting "'' (candidat: ""id_candidat"" INTEGER NOT NULL)"; SQL statement:
-INSERT INTO "PUBLIC"."candidat"("id_candidat","nom","prenom")VALUES(?,?,?) [22018-214]
