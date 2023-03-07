@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface EntrepriseRepository:CrudRepository<Entreprise,Int> {
+    //TODO déterminer comment acceder à cette méthode via URl
+    fun findByRs(rs:String):Entreprise?
 }

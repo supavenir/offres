@@ -35,11 +35,7 @@ class EntrepriseController {
     fun newSubmitAction(
         @ModelAttribute entreprise:Entreprise
     ):RedirectView{
-        var exist = false;
-        entrepriseRepository.findAll().forEach {
-            if (it.rs == entreprise.rs) exist = true;
-        }
-        if(!exist) entrepriseRepository.save(entreprise);
+        if(entrepriseRepository.findByRs(entreprise.rs) == null) entrepriseRepository.save(entreprise);
         return RedirectView("/entrep")
     }
 }
