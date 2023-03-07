@@ -1,0 +1,17 @@
+{{> /partials/header}}
+
+<h1>SPA test</h1>
+<h2>Entreprise (<span>{!entreprises.length!}</span>)</h2>
+<h3>Ajout rapide</h3>
+<input v-model="entreprise.rs">
+<button class="button" @click="add(entreprise)">Ajouter</button>
+<ul>
+
+    <li v-for="entrep in entreprises">
+        {!entrep.rs!}
+    </li>
+
+</ul>
+
+{{> /partials/footer}}
+{{{vue}}}
