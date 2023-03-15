@@ -47,3 +47,9 @@ input:checked + label:after {
 .toggl_circle:active:after {
     width: 32px;
 }
+
+.table_candidate tr:hover {
+    background: #808080 !important;
+    color: white;
+    cursor: pointer;
+}
