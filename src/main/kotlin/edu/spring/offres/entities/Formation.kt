@@ -17,9 +17,6 @@ class Formation {
     @Column(length = 255, nullable = false)
     open lateinit var libelle : String
 
-    @OneToMany
-    open var candidat =  mutableSetOf<Candidat>()
-
     @ManyToMany
     open var offres = mutableSetOf<Offre>()
 }

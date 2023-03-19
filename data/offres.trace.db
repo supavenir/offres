@@ -10,3 +10,27 @@ INSERT INTO "PUBLIC"."candidat"("id_candidat","nom","prenom")VALUES(?,?,?) [2201
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "candidat_formation" non trouvée
 Table "candidat_formation" not found; SQL statement:
 SELECT * FROM "candidat_formation" [42102-214]
+2023-03-19 17:47:42 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Erreur de syntaxe dans l'instruction SQL "[*]""formation_candidat"""
+Syntax error in SQL statement "[*]""formation_candidat"""; SQL statement:
+"formation_candidat" [42000-214]
+2023-03-19 17:48:16 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "FORMATION_CANDIDAT" non trouvée
+Table "FORMATION_CANDIDAT" not found; SQL statement:
+DROP TABLE `formation_candidat` [42102-214]
+2023-03-19 17:48:24 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Erreur de syntaxe dans l'instruction SQL "[*]DROPTABLE `formation_candidat`"; attendu "DELETE, DROP, DECLARE, DEALLOCATE"
+Syntax error in SQL statement "[*]DROPTABLE `formation_candidat`"; expected "DELETE, DROP, DECLARE, DEALLOCATE"; SQL statement:
+DROPTABLE `formation_candidat` [42001-214]
+2023-03-19 17:48:32 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Erreur de syntaxe dans l'instruction SQL "DROP  [*]`formation_candidat`"; attendu "TABLE, INDEX, USER, SEQUENCE, CONSTANT, TRIGGER, VIEW, ROLE, ALIAS, SCHEMA, ALL OBJECTS, DOMAIN, TYPE, DATATYPE, AGGREGATE, SYNONYM"
+Syntax error in SQL statement "DROP  [*]`formation_candidat`"; expected "TABLE, INDEX, USER, SEQUENCE, CONSTANT, TRIGGER, VIEW, ROLE, ALIAS, SCHEMA, ALL OBJECTS, DOMAIN, TYPE, DATATYPE, AGGREGATE, SYNONYM"; SQL statement:
+DROP  `formation_candidat` [42001-214]
+2023-03-19 17:49:10 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "FORMATION_CANDIDAT" non trouvée
+Table "FORMATION_CANDIDAT" not found; SQL statement:
+DROP TABLE formation_candidat [42102-214]
+2023-03-19 17:50:21 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "FORMATION_CANDIDAT" non trouvée
+Table "FORMATION_CANDIDAT" not found; SQL statement:
+DROP TABLE `formation_candidat` [42102-214]
