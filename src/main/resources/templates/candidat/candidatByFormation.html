@@ -1,0 +1,30 @@
+{{> partials/header }}
+<h1 class="title">Liste des Candidats</h1>
+<div class="checkbox_container">
+    <input type="checkbox" id="toggl_formation"/><label for="toggl_formation" class="toggl_circle">Toggle</label>
+    <label for="toggl_formation">Affichage par formation</label>
+</div>
+<table class="table is-fullwidth is-striped table_candidate">
+    <thead>
+    <tr>
+        <th><input type="checkbox" name="select_all" id="select_all" title="Tout sélectionner"></th>
+        <th>Prénom</th>
+        <th>Nom</th>
+        <th>Email</th>
+    </tr>
+    </thead>
+    {{# formations}}
+        <tr>
+            <td colspan="4"><b>{{libelle}}</b></td>
+        </tr>
+        {{# candidats}}
+            <tr>
+                <td><input type="checkbox" name="select_one"></td>
+                <td>{{prenom}}</td>
+                <td>{{nom}}</td>
+                <td>{{email}}</td>
+            </tr>
+        {{/ candidats}}
+    {{/ formations}}
+</table>
+{{> partials/footer }}

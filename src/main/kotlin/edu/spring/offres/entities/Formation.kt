@@ -19,4 +19,15 @@ class Formation {
 
     @ManyToMany
     open var offres = mutableSetOf<Offre>()
+
+    fun getCandidats() : MutableSet<Candidat> {
+        val candidats = mutableSetOf<Candidat>()
+        offres.forEach{
+            it.offreAssociation.forEach {
+                it.candidat
+            }
+        }
+
+        return candidats;
+    }
 }

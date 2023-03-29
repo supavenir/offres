@@ -1,6 +1,8 @@
 package edu.spring.offres.controllers
 
+import edu.spring.offres.entities.Formation
 import edu.spring.offres.repositories.CandidatRepository
+import edu.spring.offres.repositories.FormationRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.ui.ModelMap
@@ -13,6 +15,11 @@ class CandidatController {
     @Autowired
     lateinit var candidatRepository : CandidatRepository;
 
+    @Autowired
+    lateinit var formationRepository : FormationRepository
+
+    lateinit var formation : Formation
+
     @RequestMapping(path = ["","index"])
     fun indexListCandidat(model : ModelMap) : String
     {
@@ -20,9 +27,9 @@ class CandidatController {
         return "/candidat/index";
     }
 
-    @RequestMapping("/getByFormation/{id}")
-    fun listCandidatByFormation(model: ModelMap, @PathVariable id : Int) : String {
-        model["formation_candidat"] = candidatRepository.findByFormation(id)
-        return "/candidat/index";
+    @RequestMapping("/getByFormation")
+    fun listCandidatByFormation(model: ModelMap) : String {
+        model["formations"] = formationRepository.findAll();
+        return "/candidat/candidatByFormation";
     }
 }
