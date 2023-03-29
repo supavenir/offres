@@ -26,5 +26,9 @@
                 <td colspan="4">Aucun candidat disponible</td>
             </tr>
         {{/ candidats}}
+
+        {{# formation_candidat}}
+            <h1>{{formation_candidat.libelle}}</h1>
+        {{/ formation_candidat}}
     </table>
 {{> partials/footer }}
