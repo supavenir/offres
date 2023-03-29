@@ -48,7 +48,7 @@ input:checked + label:after {
     width: 32px;
 }
 
-.table_candidate tr:hover {
+.table_candidate > tbody > tr:hover {
     background: #808080 !important;
     color: white;
     cursor: pointer;

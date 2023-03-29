@@ -97,3 +97,19 @@ SELECT * FROM formation INNER JOIN formation_offres ON formation.id_formation= f
 2023-03-29 14:15:03 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "FORMATION" not found (candidates are: "formation"); SQL statement:
 SELECT * FROM formation INNER JOIN formation_offres ON formation.id_formation= formation_offres.formations_id_formation INNER JOIN offre ON offre.id = formation_offres.offres_id INNER JOIN candidat_offre ON candidat_offre.offre_id = offre.id INNER JOIN candidat ON candidat.id_candidat = candidat_offre.candidat_id_candidat WHERE candidat.id_candidat = ?  [42103-214]
+2023-03-29 17:02:17 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Erreur lors de la conversion de données "'' (offre: ""nb_postes"" INTEGER NOT NULL)"
+Data conversion error converting "'' (offre: ""nb_postes"" INTEGER NOT NULL)"; SQL statement:
+INSERT INTO "PUBLIC"."offre"("id","description","intitule","nb_postes","id_entreprise")VALUES(?,?,?,?,?) [22018-214]
+2023-03-29 17:02:17 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Erreur lors de la conversion de données "'' (offre: ""nb_postes"" INTEGER NOT NULL)"
+Data conversion error converting "'' (offre: ""nb_postes"" INTEGER NOT NULL)"; SQL statement:
+INSERT INTO "PUBLIC"."offre"("id","description","intitule","nb_postes","id_entreprise")VALUES(?,?,?,?,?) [22018-214]
+2023-03-29 17:02:21 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Erreur lors de la conversion de données "'' (offre: ""id"" INTEGER NOT NULL)"
+Data conversion error converting "'' (offre: ""id"" INTEGER NOT NULL)"; SQL statement:
+INSERT INTO "PUBLIC"."offre"("id","description","intitule","nb_postes","id_entreprise")VALUES(?,?,?,?,?) [22018-214]
+2023-03-29 17:02:21 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Erreur lors de la conversion de données "'' (offre: ""id"" INTEGER NOT NULL)"
+Data conversion error converting "'' (offre: ""id"" INTEGER NOT NULL)"; SQL statement:
+INSERT INTO "PUBLIC"."offre"("id","description","intitule","nb_postes","id_entreprise")VALUES(?,?,?,?,?) [22018-214]

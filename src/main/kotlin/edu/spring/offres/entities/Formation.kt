@@ -24,7 +24,7 @@ class Formation {
         val candidats = mutableSetOf<Candidat>()
         offres.forEach{
             it.offreAssociation.forEach {
-                it.candidat
+                candidats.add(it.candidat)
             }
         }
 
