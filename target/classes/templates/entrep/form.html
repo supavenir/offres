@@ -1,16 +1,45 @@
 {{> partials/header }}
+
 <h1 class ="is-size-3 has-text-centered my-2">Ajout d'une entreprise</h1>
 <form class="is-variable is-1-mobile is-0-tablet is-3-desktop is-8-widescreen is-flex is-flex-direction-column" method="post" action="/entrep/new">
     {{#entrep}}
         <input class="input is-normal mg-small" type="text" name="rs" placeholder="Raison sociale" required><br>
         <input class="input is-normal mg-small" type="email" name="email" placeholder="Email"><br>
         <input class="input is-normal mg-small" type="tel" name="tel" placeholder="Téléphone"><br>
-        <input class="input is-normal mg-small" type="text" name="adresse" placeholder="Adresse"><br>
-        <input class="input is-normal mg-small" type="text" name="ville" placeholder="Ville"><br>
-        <input class="input is-normal mg-small" type="text" name="cp" placeholder="Code postal"><br>
+        <input id="input_adresse" class="input is-normal mg-small" type="text" name="adresse" placeholder="Adresse"><br>
+        <input id="input_ville" list="list_ville" class="input is-normal mg-small" type="text" name="ville" placeholder="Ville"><br>
+        <datalist id="list_ville"></datalist>
+        <input id="input_cp" class="input is-normal mg-small" type="text" name="cp" placeholder="Code postal"><br>
         <button class="button is-dark mg-small my-1" type="submit">Valider</button>
         <input class="button is-dark mg-small my-1" type="reset">
     {{/entrep}}
 </form>
 <a href="/entrep"><- Retour</a>
 {{> partials/footer }}
+
+<script>
+    document.getElementById("input_cp").addEventListener("change", function () {
+        var input_ville = document.getElementById("input_ville");
+        if (input_ville.value !="") return;
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open( "GET", "https://geo.api.gouv.fr/communes?codePostal=" + this.value + "&fields=codesPostaux&format=json&geometry=centre", false ); // false for synchronous request
+        xmlHttp.send( null );
+
+        var json_convert = JSON.parse(xmlHttp.responseText);
+        if(json_convert.length > 1) {
+            var list = document.getElementById("list_ville");
+            var options = '';
+
+            for (var i = 0; i < json_convert.length; i++) {
+                if(i == 0) {
+                    options += '<option selected value="' + json_convert[i]['nom'] + '" />';
+                    continue;
+                }
+                options += '<option value="' + json_convert[i]['nom'] + '" />';
+            }
+        }
+        input_ville.value = json_convert[0]['nom'];
+        list.innerHTML = options;
+    });
+
+</script>

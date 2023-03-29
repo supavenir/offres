@@ -38,4 +38,5 @@ class EntrepriseController {
         if(entrepriseRepository.findByRs(entreprise.rs) == null && entreprise.rs != "") entrepriseRepository.save(entreprise);
         return RedirectView("/entrep")
     }
+
 }
