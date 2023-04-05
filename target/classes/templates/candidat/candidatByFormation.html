@@ -14,16 +14,21 @@
     </tr>
     </thead>
     {{# formations}}
-        <tr>
+        <tr class="formation_row">
             <td colspan="4"><b>{{libelle}}</b></td>
         </tr>
         {{# candidats}}
-            <tr>
+            <tr class="candidat_row">
                 <td><input type="checkbox" name="select_one"></td>
                 <td>{{prenom}}</td>
                 <td>{{nom}}</td>
                 <td>{{email}}</td>
             </tr>
+        {{/ candidats}}
+        {{^ candidats}}
+        <tr>
+            <td colspan="4">Aucun candidat trouvé</td>
+        </tr>
         {{/ candidats}}
     {{/ formations}}
 </table>

@@ -6,29 +6,40 @@
     </div>
     <table class="table is-fullwidth is-striped table_candidate">
         <thead>
-            <tr>
-                <th><input type="checkbox" name="select_all" id="select_all" title="Tout sélectionner"></th>
-                <th>Prénom</th>
-                <th>Nom</th>
-                <th>Email</th>
-            </tr>
+        <tr>
+            <th><input type="checkbox" name="select_all" id="select_all" title="Tout sélectionner"></th>
+            <th>Prénom</th>
+            <th>Nom</th>
+            <th>Email</th>
+        </tr>
         </thead>
-        {{# candidats}}
-            <tr>
-                <td><input type="checkbox" name="select_one"></td>
-                <td>{{prenom}}</td>
-                <td>{{nom}}</td>
-                <td>{{email}}</td>
+        {{# formations}}
+            <tr class="formation_row">
+                <td colspan="4"><b>{{libelle}}</b></td>
             </tr>
-        {{/ candidats}}
-        {{^ candidats}}
-            <tr>
-                <td colspan="4">Aucun candidat disponible</td>
-            </tr>
-        {{/ candidats}}
-
-        {{# formation_candidat}}
-            <h1>{{formation_candidat.libelle}}</h1>
-        {{/ formation_candidat}}
+            {{# candidats}}
+                <tr class="candidat_row">
+                    <td><input type="checkbox" name="select_one"></td>
+                    <td>{{prenom}}</td>
+                    <td>{{nom}}</td>
+                    <td>{{email}}</td>
+                </tr>
+            {{/ candidats}}
+            {{^ candidats}}
+                <tr>
+                    <td colspan="4">Aucun candidat trouvé</td>
+                </tr>
+            {{/ candidats}}
+        {{/ formations}}
+        {{^ formations}}
+            {{# candidats}}
+                <tr class="candidat_row">
+                    <td><input type="checkbox" name="select_one"></td>
+                    <td>{{prenom}}</td>
+                    <td>{{nom}}</td>
+                    <td>{{email}}</td>
+                </tr>
+            {{/ candidats}}
+        {{/ formations}}
     </table>
 {{> partials/footer }}

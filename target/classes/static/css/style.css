@@ -5,7 +5,7 @@
     margin-bottom: 1%;
 }
 
-input[type=checkbox]{
+#toggl_formation {
     height: 0;
     width: 0;
     visibility: hidden;
@@ -48,8 +48,12 @@ input:checked + label:after {
     width: 32px;
 }
 
-.table_candidate > tbody > tr:hover {
+.candidat_row:hover {
     background: #808080 !important;
     color: white;
     cursor: pointer;
+}
+
+.formation_row {
+    background: #a6a6a6;
 }

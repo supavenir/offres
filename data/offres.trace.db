@@ -113,3 +113,11 @@ INSERT INTO "PUBLIC"."offre"("id","description","intitule","nb_postes","id_entre
 org.h2.jdbc.JdbcSQLDataException: Erreur lors de la conversion de données "'' (offre: ""id"" INTEGER NOT NULL)"
 Data conversion error converting "'' (offre: ""id"" INTEGER NOT NULL)"; SQL statement:
 INSERT INTO "PUBLIC"."offre"("id","description","intitule","nb_postes","id_entreprise")VALUES(?,?,?,?,?) [22018-214]
+2023-03-29 19:56:36 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Erreur lors de la conversion de données "'' (formation: ""id_formation"" INTEGER NOT NULL)"
+Data conversion error converting "'' (formation: ""id_formation"" INTEGER NOT NULL)"; SQL statement:
+INSERT INTO "PUBLIC"."formation"("id_formation","libelle")VALUES(?,?) [22018-214]
+2023-03-29 19:56:36 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Erreur lors de la conversion de données "'' (formation: ""id_formation"" INTEGER NOT NULL)"
+Data conversion error converting "'' (formation: ""id_formation"" INTEGER NOT NULL)"; SQL statement:
+INSERT INTO "PUBLIC"."formation"("id_formation","libelle")VALUES(?,?) [22018-214]
