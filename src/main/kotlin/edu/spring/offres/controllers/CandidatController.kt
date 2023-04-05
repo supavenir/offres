@@ -6,6 +6,7 @@ import edu.spring.offres.repositories.FormationRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.ui.ModelMap
+import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 
@@ -27,9 +28,9 @@ class CandidatController {
         return "/candidat/index";
     }
 
-    @RequestMapping("/getByFormation")
+    @GetMapping("/getByFormation")
     fun listCandidatByFormation(model: ModelMap) : String {
         model["formations"] = formationRepository.findAll();
-        return "/candidat/candidatByFormation";
+        return "/candidat/index";
     }
 }
