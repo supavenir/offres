@@ -20,7 +20,7 @@
                 </tr>
                 {{# candidats}}
                     <tr class="candidat_row">
-                        <td><input type="checkbox" name="select_one"></td>
+                        <td><input type="checkbox" name="select_one" class="checkbox_candidat"></td>
                         <td>{{prenom}}</td>
                         <td>{{nom}}</td>
                         <td>{{email}}</td>
@@ -35,7 +35,7 @@
             {{^ formations}}
                 {{# candidats}}
                     <tr class="candidat_row">
-                        <td><input type="checkbox" name="select_one"></td>
+                        <td><input type="checkbox" name="select_one" class="checkbox_candidat"></td>
                         <td>{{prenom}}</td>
                         <td>{{nom}}</td>
                         <td>{{email}}</td>
