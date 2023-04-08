@@ -28,25 +28,23 @@
     document.getElementById("input_cp").addEventListener("change", function () {
         var input_ville = document.getElementById("input_ville");
         if (input_ville.value !="") return;
-        var xmlHttp = new XMLHttpRequest();
-        xmlHttp.open( "GET", "https://geo.api.gouv.fr/communes?codePostal=" + this.value + "&fields=codesPostaux&format=json&geometry=centre", false ); // false for synchronous request
-        xmlHttp.send( null );
+        fetch("https://geo.api.gouv.fr/communes?codePostal=" + this.value + "&fields=codesPostaux&format=json&geometry=centre").then(async function (reponse) {
+            let result = await reponse.json();
+            if (result.length > 1) {
+                var list = document.getElementById("list_ville");
+                var options = '';
 
-        var json_convert = JSON.parse(xmlHttp.responseText);
-        if(json_convert.length > 1) {
-            var list = document.getElementById("list_ville");
-            var options = '';
-
-            for (var i = 0; i < json_convert.length; i++) {
-                if(i == 0) {
-                    options += '<option selected value="' + json_convert[i]['nom'] + '" />';
-                    continue;
+                for (var i = 0; i < result.length; i++) {
+                    if (i == 0) {
+                        options += '<option selected value="' + result[i]['nom'] + '" />';
+                        continue;
+                    }
+                    options += '<option value="' + result[i]['nom'] + '" />';
                 }
-                options += '<option value="' + json_convert[i]['nom'] + '" />';
             }
-        }
-        input_ville.value = json_convert[0]['nom'];
-        list.innerHTML = options;
+            input_ville.value = result[0]['nom'];
+            list.innerHTML = options;
+        });
     });
 
     function getEntreprisesByRs() {
