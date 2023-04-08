@@ -3,9 +3,9 @@
 <h1 class ="is-size-3 has-text-centered my-2">Ajout d'une entreprise</h1>
 <form class="is-variable is-1-mobile is-0-tablet is-3-desktop is-8-widescreen is-flex is-flex-direction-column" method="post" action="/entrep/new">
     {{#entrep}}
-        <input class="input is-normal mg-small" type="text" name="rs" placeholder="Raison sociale" required><br>
+        <input id="input_rs" class="input is-normal mg-small" type="text" name="rs" placeholder="Raison sociale" onchange="getEntreprisesByRs()" required><br>
         <input class="input is-normal mg-small" type="email" name="email" placeholder="Email"><br>
-        <input class="input is-normal mg-small" type="tel" name="tel" placeholder="Téléphone"><br>
+        <input class="input is-normal mg-small" type="tel" name="tel" placeholder="Téléphone" pattern="[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}"><br>
         <input id="input_adresse" class="input is-normal mg-small" type="text" name="adresse" placeholder="Adresse"><br>
         <input id="input_ville" list="list_ville" class="input is-normal mg-small" type="text" name="ville" placeholder="Ville"><br>
         <datalist id="list_ville"></datalist>
@@ -14,7 +14,14 @@
         <input class="button is-dark mg-small my-1" type="reset">
     {{/entrep}}
 </form>
+<div id="container_entreps">
+    Entreprises déjà existantes :
+    <ul id="entreps">
+
+    </ul>
+</div>
 <a href="/entrep"><- Retour</a>
+
 {{> partials/footer }}
 
 <script>
@@ -42,4 +49,33 @@
         list.innerHTML = options;
     });
 
+    function getEntreprisesByRs() {
+        var contenu = document.getElementById("input_rs").value;
+
+        //Création d'une requete au serveur pour afficher les entreprises
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "/entrep/rs?contenu=" + encodeURIComponent(contenu), true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.onload = function() {
+            var list = document.getElementById("entreps")
+            if (xhr.status === 200) {
+                if(xhr.responseText == "[]") {
+                    list.innerHTML = "Pas d'entreprises trouvées";
+                }else {
+                    var entreprises = JSON.parse(xhr.responseText);
+                    list.innerHTML = "";
+
+                    //Création de la liste
+                    entreprises.forEach(function(entreprise) {
+                        var li = document.createElement("li");
+                        li.textContent = entreprise.rs;
+                        list.appendChild(li);
+                    });
+                }
+            }else {
+                list.innerHTML = "Erreur lors de la requete";
+            }
+        };
+        xhr.send();
+    }
 </script>
