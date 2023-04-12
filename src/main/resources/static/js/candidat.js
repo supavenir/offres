@@ -5,12 +5,11 @@ window.addEventListener("load", () => {
        headers.append("x-partial_request", "true")
        if(document.querySelector("#toggl_formation").checked) {
          fetch("/candidat/getByFormation", {
-             method: "GET",
-             headers: headers
+             method: "GET"
          }).then(request => {
             request.text().then(requestBody => {
                if(request.ok === true) {
-                  console.log(request)
+                  document.querySelector("tbody").innerHTML = requestBody;
                   /*let tbodyContentByFormation = requestBody.match(/<tbody>([\s\S]*?)<\/tbody>/i)[0].replace(/(<tbody>|<\/tbody>)/gmi, "");
                   document.querySelector("tbody").innerHTML = tbodyContentByFormation;*/
                }
