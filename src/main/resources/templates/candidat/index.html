@@ -41,6 +41,11 @@
                         <td>{{email}}</td>
                     </tr>
                 {{/ candidats}}
+                {{^ candidats}}
+                <tr>
+                    <td colspan="4">Aucun candidat trouvé</td>
+                </tr>
+                {{/ candidats}}
             {{/ formations}}
         </tbody>
     </table>

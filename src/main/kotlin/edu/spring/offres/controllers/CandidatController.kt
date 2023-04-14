@@ -27,20 +27,25 @@ class CandidatController {
     @RequestMapping(path = ["","index"])
     fun indexListCandidat(model : ModelMap, request: HttpServletRequest) : String
     {
+        val partialRequest = request.getHeader("x-partial_request");
         model["candidats"] = candidatRepository.findAll();
-        return "/candidat/index";
-        /*val partialRequest = request.getHeader("x-partial_request");
-        if(partialRequest == "true") {
-            return "";
-        } else {
 
-        }*/
+        if(partialRequest == "true") {
+            return "/candidat/tbodyPart";
+        } else {
+            return "/candidat/index";
+        }
     }
 
     @GetMapping("/getByFormation")
-    fun listCandidatByFormation(model: ModelMap, request : HttpServletRequest) : ModelAndView {
-        var modelAndView = ModelAndView("candidat/index")
-        modelAndView.addObject("formations", formationRepository.findAll())
-        return modelAndView
+    fun listCandidatByFormation(model: ModelMap, request : HttpServletRequest) : String {
+        val partialRequest = request.getHeader("x-partial_request");
+        model["formations"] = formationRepository.findAll();
+
+        if(partialRequest == "true") {
+            return "/candidat/tbodyPart";
+        } else {
+            return "/candidat/index";
+        }
     }
 }
