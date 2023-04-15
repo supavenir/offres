@@ -17,21 +17,20 @@ class SPAController {
     lateinit var vue:VueJS
 
     @ModelAttribute("vue")
-    fun getVueInstance() = this.vue
+    fun getVueInstance():VueJS=this.vue
 
-    @RequestMapping("", "/")
-    fun index():String {
-        vue.addDataRaw("entreprises", "[]")
-
-        vue.addDataRaw("entreprise", "{rs:''}")
-
+    @RequestMapping(path = ["","/"])
+    fun index():String{
+        vue.addDataRaw("entreprises","[]")
+        vue.addDataRaw("entreprise","{rs:''}")
         vue.addMethod("add",
-            Http.post("/entreprises", "entreprise",
-                JsArray.add("this.entreprises", "entreprise") + "entreprise.rs='';"),
+            Http.post("/entreprises","entreprise",
+            JsArray.add("this.entreprises","entreprise")+
+                    "entreprise.rs='';"
+            ),
             "entreprise")
-
         vue.onMounted(
-            Http.get("/entreprises", Http.responseArrayToArray("this.entreprises", "entreprises"))
+            Http.get("/entreprises",Http.responseArrayToArray("this.entreprises","entreprises"))
         )
         return "/spa/index"
     }

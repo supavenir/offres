@@ -1,0 +1,26 @@
+{{> partials/header }}
+    <h1 class="title">Liste des Candidats</h1>
+    <table class="table is-fullwidth is-striped">
+        <thead>
+            <tr>
+                <th><input type="checkbox" name="select_all" id="select_all" title="Tout sélectionner"></th>
+                <th>Prénom</th>
+                <th>Nom</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        {{# candidats}}
+            <tr>
+                <td><input type="checkbox" name="select_one"></td>
+                <td>{{prenom}}</td>
+                <td>{{nom}}</td>
+                <td>{{email}}</td>
+            </tr>
+        {{/ candidats}}
+        {{^ candidats}}
+            <tr>
+                <td colspan="4">Aucun candidat disponible</td>
+            </tr>
+        {{/ candidats}}
+    </table>
+{{> partials/footer }}

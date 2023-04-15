@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.rest.core.annotation.RepositoryRestResource
 
 @RepositoryRestResource(path = "offres", collectionResourceRel = "offres")
-interface RestOffresResource: JpaRepository<Offre, Int> {
+interface RestOffresResource:JpaRepository<Offre,Int> {
 }

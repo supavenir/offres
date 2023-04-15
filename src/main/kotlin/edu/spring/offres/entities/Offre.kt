@@ -29,6 +29,6 @@ open class Offre {
     @ManyToOne()
     @JoinColumn(name = "idEntreprise")
     @JsonBackReference
-    @RestResource(exported = false, rel="entreprise", path="entreprise")
+    @RestResource(exported = false,rel="entreprise",path="entreprise")
     lateinit open var entreprise:Entreprise
 }
