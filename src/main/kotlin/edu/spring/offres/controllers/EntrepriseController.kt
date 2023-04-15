@@ -20,27 +20,33 @@ class EntrepriseController {
 
     @RequestMapping(path = ["","index"])
     fun indexAction(model:ModelMap):String{
-        model["entreprises"]=entrepriseRepository.findAll()
+        model.addAttribute("entreprises", entrepriseRepository.findAll())
         return "/entrep/index"
     }
 
     @GetMapping("/new")
     fun newAction(model:ModelMap):String{
-        model["entrep"]=Entreprise()
+        model.addAttribute("entrep",Entreprise())
         return "/entrep/form"
     }
 
     @PostMapping("/new")
     fun newSubmitAction(
-        @ModelAttribute entreprise:Entreprise
-    ):RedirectView{
-        if(entrepriseRepository.findByRs(entreprise.rs) == null && entreprise.rs != "") entrepriseRepository.save(entreprise);
-        return RedirectView("/entrep")
+        @ModelAttribute entrep:Entreprise,
+        model: ModelMap
+    ): String {
+        if (entrepriseRepository.findByRs(entrep.rs) != null) {
+            model.addAttribute("error", "L'entreprise existe déjà")
+            model.addAttribute("entrep", entrep)
+            return "/entrep/form"
+        } else {
+            entrepriseRepository.save(entrep)
+            return "redirect:/entrep/index"
+        }
     }
 
     @GetMapping("/rs")
     fun getEntreprises(@RequestParam("contenu") contenu: String?): ResponseEntity<List<Entreprise>>? {
-        print("oui")
         val entreprises: List<Entreprise>? = entrepriseRepository.findByRsContaining(contenu)
         return ResponseEntity.ok(entreprises)
     }
