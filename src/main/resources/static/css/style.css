@@ -55,5 +55,5 @@ input:checked + label:after {
 }
 
 .formation_row {
-    background: #a6a6a6;
+    background: #a6a6a6 !important;
 }

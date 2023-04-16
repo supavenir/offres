@@ -9,11 +9,7 @@ window.addEventListener("load", () => {
              headers:headers
          }).then(request => {
             request.text().then(requestBody => {
-               if(request.ok === true) {
-                  document.querySelector("tbody").innerHTML = requestBody;
-                  /*let tbodyContentByFormation = requestBody.match(/<tbody>([\s\S]*?)<\/tbody>/i)[0].replace(/(<tbody>|<\/tbody>)/gmi, "");
-                  document.querySelector("tbody").innerHTML = tbodyContentByFormation;*/
-               }
+               setTbodyContent(request, requestBody);
             })
          });
       } else {
@@ -22,15 +18,17 @@ window.addEventListener("load", () => {
              headers:headers
          }).then(request => {
             request.text().then(requestBody => {
-               if(request.ok === true) {
-                   document.querySelector("tbody").innerHTML = requestBody;
-                  /*let tbody = requestBody.match(/<tbody>([\s\S]*?)<\/tbody>/i)[0].replace(/(<tbody>|<\/tbody>)/gmi, "");
-                  document.querySelector("tbody").innerHTML = tbody;*/
-               }
+               setTbodyContent(request, requestBody);
             })
          });
       }
    });
+
+   function setTbodyContent(request, requestBody) {
+       if(request.ok === true) {
+           document.querySelector("tbody").innerHTML = requestBody;
+       }
+   }
 
    // Partie 2 - (Un/)Check all checkboxes on click on select all checkbox
    document.querySelector("#select_all").addEventListener("change", () => {
