@@ -3,13 +3,13 @@ package edu.spring.offres.controllers
 import edu.spring.offres.entities.Entreprise
 import edu.spring.offres.repositories.EntrepriseRepository
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Controller
 import org.springframework.ui.ModelMap
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.ModelAttribute
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.*
 import org.springframework.web.servlet.view.RedirectView
+import java.util.*
+
 
 @Controller
 @RequestMapping("/entrep")
@@ -20,21 +20,35 @@ class EntrepriseController {
 
     @RequestMapping(path = ["","index"])
     fun indexAction(model:ModelMap):String{
-        model["entreprises"]=entrepriseRepository.findAll()
+        model.addAttribute("entreprises", entrepriseRepository.findAll())
         return "/entrep/index"
     }
 
     @GetMapping("/new")
     fun newAction(model:ModelMap):String{
-        model["entrep"]=Entreprise()
+        model.addAttribute("entrep",Entreprise())
         return "/entrep/form"
     }
 
     @PostMapping("/new")
     fun newSubmitAction(
-        @ModelAttribute entreprise:Entreprise
-    ):RedirectView{
-        entrepriseRepository.save(entreprise)
-        return RedirectView("/entrep")
+        @ModelAttribute entrep:Entreprise,
+        model: ModelMap
+    ): String {
+        if (entrepriseRepository.findByRs(entrep.rs) != null) {
+            model.addAttribute("error", "L'entreprise existe déjà")
+            model.addAttribute("entrep", entrep)
+            return "/entrep/form"
+        } else {
+            entrepriseRepository.save(entrep)
+            return "redirect:/entrep/index"
+        }
     }
+
+    @GetMapping("/rs")
+    fun getEntreprises(@RequestParam("contenu") contenu: String?): ResponseEntity<List<Entreprise>>? {
+        val entreprises: List<Entreprise>? = entrepriseRepository.findByRsContaining(contenu)
+        return ResponseEntity.ok(entreprises)
+    }
+
 }
