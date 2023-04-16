@@ -1,9 +1,8 @@
 <!doctype html>
 {{> partials/header }}
-<h2>Details</h2>
 {{#entreprise}}
-<h1 class="is-size-3 has-text-centered my-2">Details de l'entreprise {{rs}}</h1>
-<div class="is-flex container is-justify-content-space-around">
+<h1 class="is-size-3 has-text-centered my-2 title">Details de l'entreprise {{rs}}</h1>
+<div class="is-flex container is-justify-content-space-around has-background-light">
     <div>
         <div>
             Raison sociale : {{rs}}
@@ -31,9 +30,9 @@
         </div>
         <div class="is-flex is-justify-content-space-between">
             <!--Mettre les liens correspondant aux offres ici-->
-            <button>Ajouter une offre</button>
-            <button>Modifier une offre</button>
-            <button>Supprimer une offre</button>
+            <button class="button is-dark mg-small my-1">Ajouter une offre</button>
+            <button class="button is-dark mg-small my-1">Modifier une offre</button>
+            <button class="button is-dark mg-small my-1">Supprimer une offre</button>
         </div>
     </div>
 </div>
