@@ -49,7 +49,7 @@ class CandidatController {
 
     @GetMapping("/getCandidat/{id}")
     fun getCandidatById(@PathVariable id : Int, model: ModelMap) : String {
-        model["candidat"] = candidatRepository.findById(id);
+        model["candidat"] = candidatRepository.findById(id).get();
         return "/candidat/ficheCandidat";
     }
 }
