@@ -17,6 +17,15 @@ open class Candidat {
     @Column(length = 255, nullable = false)
     open lateinit var email: String
 
+    @Column(length = 10, nullable = false)
+    open var numeroTel: Int? = null;
+
+    @Column(length = 80, nullable = false)
+    open lateinit var ville : String
+
+    @Column(length = 80, nullable = false)
+    open lateinit var reference : String
+
     @OneToMany(mappedBy = "candidat")
     open val candidatAssociation = mutableSetOf<CandidatOffre>()
 
