@@ -46,4 +46,10 @@ class CandidatController {
             return "/candidat/index";
         }
     }
+
+    @GetMapping("/getCandidat/{id}")
+    fun getCandidatById(@PathVariable id : Int, model: ModelMap) : String {
+        model["candidat"] = candidatRepository.findById(id);
+        return "/candidat/ficheCandidat";
+    }
 }
