@@ -72,3 +72,7 @@ input:checked + label:after {
 .formation_row {
     background: #a6a6a6 !important;
 }
+
+.subtitle_oneCandidat {
+    text-align: center;
+}
