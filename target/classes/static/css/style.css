@@ -48,9 +48,24 @@ input:checked + label:after {
     width: 32px;
 }
 
+.candidat_row td {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.candidat_row td a {
+    display:block;
+    height:100%;
+    width:100%;
+    color: grey;
+}
+
+.candidat_row:hover td a {
+    color: white !important;
+}
+
 .candidat_row:hover {
     background: #808080 !important;
-    color: white;
     cursor: pointer;
 }
 
