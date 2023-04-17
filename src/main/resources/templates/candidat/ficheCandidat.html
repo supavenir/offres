@@ -1,5 +1,21 @@
 {{> partials/header }}
 {{# candidat}}
-    <h1 class="title"><a href="/candidat">Liste des Candidats</a> > {{prenom}}</h1>
+    <h1 class="title"><a href="/candidat">Liste des Candidats</a> > {{prenom}} {{nom}}</h1>
+    <div class="box">
+        <h2 class="subtitle subtitle_oneCandidat">{{prenom}} {{nom}}</h2>
+        <div class="columns">
+            <div class="column column-is-centered">
+                <p><b>Email : <br> </b> {{email}}</p>
+                <p><b>Ville : <br> </b> {{ville}}</p>
+            </div>
+            <div class="column column-is-centered">
+                <p><b>Téléphone : <br> </b> 0{{numeroTel}}</p>
+                <p>
+                    <b>Formations : <br></b>
+                    {{# formations}} <span class="tag is-info">{{libelle}}</span> {{/ formations}}</a>
+                </p>
+            </div>
+        </div>
+    </div>
 {{/ candidat}}
 {{> partials/footer}}
