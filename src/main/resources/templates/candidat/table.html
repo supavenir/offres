@@ -18,9 +18,9 @@
 {{# candidats}}
 <tr class="candidat_row">
     <td><input type="checkbox" name="select_one" class="checkbox_candidat"></td>
-    <td>{{prenom}}</td>
-    <td>{{nom}}</td>
-    <td>{{email}}</td>
+    <td><a href="/candidat/getCandidat/{{idCandidat}}">{{prenom}}</a></td>
+    <td><a href="/candidat/getCandidat/{{idCandidat}}">{{nom}}</a></td>
+    <td><a href="/candidat/getCandidat/{{idCandidat}}">{{email}}</a></td>
 </tr>
 {{/ candidats}}
 {{^ candidats}}
@@ -33,10 +33,10 @@
 {{# candidats}}
 <tr class="candidat_row">
     <td><input type="checkbox" name="select_one" class="checkbox_candidat"></td>
-    <td>{{prenom}}</td>
-    <td>{{nom}}</td>
-    <td>{{email}}</td>
-    <td>{{# formations}} <span class="tag is-info">{{libelle}}</span> {{/ formations}}</td>
+    <td><a href="/candidat/getCandidat/{{idCandidat}}">{{prenom}}</a></td>
+    <td><a href="/candidat/getCandidat/{{idCandidat}}">{{nom}}</a></td>
+    <td><a href="/candidat/getCandidat/{{idCandidat}}">{{email}}</a></td>
+    <td><a href="/candidat/getCandidat/{{idCandidat}}">{{# formations}} <span class="tag is-info">{{libelle}}</span> {{/ formations}}</a></td>
 </tr>
 {{/ candidats}}
 {{^ candidats}}
