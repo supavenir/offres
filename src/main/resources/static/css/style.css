@@ -1,0 +1,78 @@
+.checkbox_container {
+    display: flex;
+    padding-top: 0;
+    margin-top: 0;
+    margin-bottom: 1%;
+}
+
+#toggl_formation {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+}
+
+.toggl_circle {
+    cursor: pointer;
+    text-indent: -9999px;
+    width: 50px;
+    height: 25px;
+    background: grey;
+    display: block;
+    border-radius: 25px;
+    position: relative;
+    margin-right: 1%;
+}
+
+.toggl_circle:after {
+    content: '';
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    width: 23px;
+    height: 23px;
+    background: #fff;
+    border-radius: 45px;
+    transition: 0.3s;
+}
+
+input:checked + .toggl_circle {
+    background: #bada55;
+}
+
+input:checked + label:after {
+    left: calc(100% - 1px);
+    transform: translateX(-100%);
+}
+
+.toggl_circle:active:after {
+    width: 32px;
+}
+
+.candidat_row td {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.candidat_row td a {
+    display:block;
+    height:100%;
+    width:100%;
+    color: grey;
+}
+
+.candidat_row:hover td a {
+    color: white !important;
+}
+
+.candidat_row:hover {
+    background: #808080 !important;
+    cursor: pointer;
+}
+
+.formation_row {
+    background: #a6a6a6 !important;
+}
+
+.subtitle_oneCandidat {
+    text-align: center;
+}

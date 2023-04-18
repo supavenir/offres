@@ -5,4 +5,8 @@ import org.springframework.data.repository.CrudRepository
 import org.springframework.stereotype.Repository
 
 @Repository
-interface EntrepriseRepository:CrudRepository<Entreprise,Int> {}
+interface EntrepriseRepository:CrudRepository<Entreprise,Int> {
+    //TODO déterminer comment acceder à cette méthode via URl
+    fun findByRs(rs:String):Entreprise?
+    fun findByRsContaining(rs:String?):List<Entreprise>?
+}
